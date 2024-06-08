@@ -1,0 +1,36 @@
+#include<stdio.h>
+#include<stdlib.h>
+void bsort(int x[],int n)
+{
+    int pass,i,temp;
+    for(pass=1;pass<n;pass++)
+    {
+        for(i=0;i<=n-1-pass;i++)
+        {
+            if(x[i]>x[i+1])
+            {
+                temp=x[i];
+                x[i]=x[i+1];
+                x[i+1]=temp;
+            }
+        }
+    }
+}
+main()
+{
+    int *a,n,i;
+    printf("enter size of the array:");
+    scanf("%d",&n);
+    a=(int *)malloc(n*sizeof(int));
+    printf("enter %d elements of the array:",n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    bsort(a,n);
+    printf("sorted array is:");
+    for(i=0;i<n;i++)
+    {
+        printf("\n%d",a[i]);
+    }
+}
